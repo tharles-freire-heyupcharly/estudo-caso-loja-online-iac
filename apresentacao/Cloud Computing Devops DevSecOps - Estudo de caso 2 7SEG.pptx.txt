@@ -1,0 +1,52 @@
+CYBER SECURITY
+GOVERNANCE & MANAGEMENT
+
+Cloud Computing, DevOps e DevSecOps
+
+Profª . Tharles Maicon Freire dos Santos 
+EMAIL tharles.freire@heyupcharly.com.br
+
+2024
+
+Estudo de Caso 2:
+Uma loja online que vende produtos variados enfrenta um padrão de tráfego específico: picos de tráfego nas sextas-feiras e baixa atividade durante o fim de semana. O tráfego elevado nas sextas-feiras é atribuído a promoções semanais e descontos, enquanto o fim de semana é mais tranquilo devido ao comportamento dos consumidores.
+
+Estudo de Caso 2:
+Problema:Durante um pico de tráfego em uma sexta-feira, a aplicação escalou sem limites, resultando em um aumento substancial dos custos operacionais. Isso aconteceu devido à ausência de controles adequados de escalabilidade e falta de otimização da infraestrutura.
+
+
+Estudo de Caso 2:
+Objetivo:
+Analisar a arquitetura atual da aplicação.
+Identificar os pontos fracos na gestão de escalabilidade.
+Propor soluções para controlar os custos durante os picos de tráfego.
+Implementar estratégias para otimização de recursos e escalabilidade eficiente.
+
+
+Estudo de Caso 2:
+Análise da Arquitetura Atual:
+
+Frontend: Desenvolvido com React, o frontend da aplicação é hospedado em um serviço de hospedagem estática, como AWS S3 com CloudFront para CDN.
+
+Backend: Utiliza Node.js e Express, hospedado em instâncias ECS na AWS.
+Banco de Dados: Amazon Aurora com PostgreSQL.
+
+Escalabilidade: A aplicação utiliza Auto Scaling no AWS para escalar instâncias EC2 conforme a demanda.
+
+
+Estudo de Caso 2:
+Problemas Identificados
+
+Escalabilidade Sem Limites: O Auto Scaling está configurado para escalar sem limites superiores, causando aumento descontrolado de instâncias e custos.
+
+Falta de Otimização de Recursos: Não há otimização para utilização de recursos em horários de pico e baixa atividade.
+
+Monitoramento Inadequado: Falta de um sistema robusto de monitoramento e alertas para gerenciar e prever picos de tráfego.
+
+
+Estudo de Caso 2:
+Descreva uma nova infraestrutura para a aplicação. Defina regras para planejamento, monitoramento e plano de ação para picos de tráfego. 
+
+Copyright © 2016  Prof. 
+
+Todos direitos reservados. Reprodução ou divulgação total ou parcial deste documento é expressamente proíbido sem o consentimento formal, por escrito, do Professor (autor).

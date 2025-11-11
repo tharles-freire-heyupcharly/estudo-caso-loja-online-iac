@@ -1,0 +1,36 @@
+services:
+  localstack:
+    container_name: loja-online-localstack
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"            # LocalStack Gateway
+      - "4510-4559:4510-4559"  # External services port range
+    environment:
+      # Serviços AWS a serem emulados
+      - SERVICES=ec2,s3,iam,cloudwatch,logs,sts,autoscaling,elb,elbv2,route53,secretsmanager,ssm
+      
+      # Configurações LocalStack
+      - DEBUG=1
+      - PERSISTENCE=0
+      - LAMBDA_EXECUTOR=docker
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      
+      # Desabilitar telemetria
+      - LOCALSTACK_API_KEY=${LOCALSTACK_API_KEY:-}
+      
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - localstack-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+networks:
+  localstack-network:
+    name: loja-online-network
+    driver: bridge
